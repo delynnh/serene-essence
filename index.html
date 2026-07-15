@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -362,6 +364,75 @@
   }
 
   .section-pad{ padding-top:14px; }
+
+  /* ---------- About ---------- */
+  .about-wrap{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:40px;
+    align-items:center;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:40px;
+    margin-bottom:28px;
+  }
+  @media (max-width:800px){
+    .about-wrap{ grid-template-columns:1fr; padding:30px; }
+  }
+  .about-photo{
+    width:100%;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(19,72,68,0.18);
+  }
+  .about-photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+  .about-text .label{
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-family:'Playfair Display', serif;
+    font-size:0.85rem;
+    color:var(--gold-dark);
+    border-bottom:1px solid var(--gold);
+    display:inline-block;
+    padding-bottom:6px;
+    margin-bottom:16px;
+  }
+  .about-text h2{
+    font-size:1.7rem;
+    margin-bottom:4px;
+  }
+  .about-text .script{
+    display:block;
+    margin-bottom:16px;
+    font-size:1.6rem;
+  }
+  .about-text p{ margin:0 0 14px; }
+  .about-text p:last-child{ margin-bottom:0; }
+
+  .about-highlights{
+    list-style:none;
+    margin:18px 0 0;
+    padding:16px 0 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 20px;
+  }
+  @media (max-width:520px){
+    .about-highlights{ grid-template-columns:1fr; }
+  }
+  .about-highlights li{
+    display:flex; align-items:center; gap:10px;
+    font-size:1.02rem;
+    color:var(--ink);
+  }
+  .about-highlights li svg{ width:19px; height:19px; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -541,6 +612,29 @@
       <span class="mark">&ldquo;</span>
       After just a few sessions, I felt lighter, slept better, and had more energy than I had in years.
       <cite>&mdash; client review</cite>
+    </div>
+
+    <!-- About -->
+    <div class="about-wrap">
+      <div class="about-photo">
+        <img src="images/de-lynn-hughes.png" alt="De Lynn Hughes, Spinal Flow Technique practitioner">
+      </div>
+      <div class="about-text">
+        <span class="label">About Me</span>
+        <h2>De Lynn Hughes</h2>
+        <span class="script">Founder, Serene Essence</span>
+        <p>For 26 years, helping others has been at the heart of everything I do. As a teacher, I've spent my career nurturing growth and guiding people toward their potential — a calling that taught me the value of patience, presence, and genuine care.</p>
+        <p>That same passion for helping others led me to discover Spinal Flow Technique. I was drawn to how gently and powerfully it supported the body's own ability to heal, and I went on to become a certified practitioner so I could bring that same experience to others alongside my work in the classroom.</p>
+        <p>I founded Serene Essence to continue the work I love most: helping clients heal, find balance, and reconnect with their bodies in a calm, supportive space.</p>
+        <ul class="about-highlights">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>26 Years Helping Others</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Teacher</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Discovered Spinal Flow</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Certified Practitioner</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Founded Serene Essence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Helping Clients Heal</li>
+        </ul>
+      </div>
     </div>
 
     <!-- Contact -->
