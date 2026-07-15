@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serene Essence — Spinal Flow Technique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#134844;
+    --teal-mid:#1f6b63;
+    --teal-soft:#2d8577;
+    --gold:#c7a06a;
+    --gold-dark:#a3763f;
+    --cream:#faf5e9;
+    --cream-dark:#f0e6d0;
+    --ink:#22322f;
+    --ink-soft:#4a5a56;
+    --white:#ffffff;
+    --line: rgba(19,72,68,0.18);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Playfair Display', serif;
+    color:var(--teal-deep);
+    margin:0;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+    position:relative;
+  }
+
+  /* ---------- Background spine signature ---------- */
+  .spine-rail{
+    position:fixed;
+    top:0; right:0;
+    width:min(14vw, 190px);
+    height:100vh;
+    pointer-events:none;
+    opacity:0.55;
+    z-index:0;
+  }
+  .spine-rail svg{ width:100%; height:100%; }
+  @media (max-width: 880px){
+    .spine-rail{ display:none; }
+  }
+
+  .glow-path{
+    stroke: url(#glowGrad);
+    stroke-width:3;
+    fill:none;
+    stroke-linecap:round;
+    stroke-dasharray: 14 22;
+    animation: flow 6s linear infinite;
+  }
+  @keyframes flow{
+    to{ stroke-dashoffset:-72; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .glow-path{ animation:none; }
+  }
+
+  section, header, footer{ position:relative; z-index:1; }
+
+  /* ---------- Header / hero ---------- */
+  header.hero{
+    padding:64px 0 40px;
+    text-align:center;
+  }
+
+  .brand-mark{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+
+  .brand-mark svg{ width:82px; height:82px; flex-shrink:0; }
+
+  .brand-text h1{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    letter-spacing:0.06em;
+    font-weight:800;
+  }
+
+  .script{
+    font-family:'Mrs Saint Delafield', cursive;
+    color:var(--teal-mid);
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    line-height:1;
+    margin-top:2px;
+    font-weight:400;
+  }
+
+  .tagline{
+    margin-top:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    color:var(--gold-dark);
+    font-family:'Playfair Display', serif;
+    letter-spacing:0.28em;
+    font-size:0.92rem;
+    font-weight:600;
+  }
+  .tagline .rule{
+    width:52px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  /* ---------- Cards / sections ---------- */
+  .grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin:0 0 28px;
+  }
+  @media (max-width: 800px){
+    .grid-2{ grid-template-columns:1fr; }
+  }
+
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:38px 36px;
+  }
+
+  .card-head{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:20px;
+  }
+  .badge{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--teal-deep);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .badge.gold{ background:var(--gold); }
+  .badge svg{ width:26px; height:26px; }
+
+  .card-head h2{
+    font-size:1.35rem;
+    line-height:1.25;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding-top:6px;
+  }
+
+  .underline{
+    width:60px; height:2px;
+    background:var(--gold);
+    margin:12px 0 18px;
+  }
+
+  ul.plain{
+    list-style:none;
+    margin:0; padding:0;
+    columns:2;
+    column-gap:24px;
+  }
+  ul.plain li{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:11px;
+    font-size:1.05rem;
+    break-inside:avoid;
+  }
+  ul.plain li::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--teal-mid);
+    border-radius:50%;
+    flex-shrink:0;
+  }
+
+  .note{
+    margin-top:22px;
+    font-style:italic;
+    color:var(--teal-mid);
+    border-left:2px solid var(--gold);
+    padding-left:16px;
+  }
+
+  ul.checks{
+    list-style:none; margin:0; padding:0;
+  }
+  ul.checks li{
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:12px;
+    font-size:1.06rem;
+  }
+  ul.checks li svg{ width:20px; height:20px; flex-shrink:0; }
+
+  .gateway-body{
+    display:grid;
+    grid-template-columns:1fr 150px;
+    gap:20px;
+    align-items:center;
+  }
+  @media (max-width:520px){
+    .gateway-body{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Heal band ---------- */
+  .heal-band{
+    background:linear-gradient(135deg, var(--teal-deep), var(--teal-mid));
+    color:var(--cream);
+    border-radius:6px;
+    padding:44px 44px;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+  .heal-band .badge{ background:rgba(255,255,255,0.14); }
+  .heal-band h2{
+    color:var(--white);
+    text-transform:uppercase;
+    font-size:1.3rem;
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+  }
+  .heal-band p{ margin:0; color:rgba(250,245,233,0.9); max-width:60ch; }
+  .heal-band .script{
+    color:var(--gold);
+    display:block;
+    margin-top:14px;
+    font-size:1.8rem;
+  }
+
+  /* ---------- Testimonial ---------- */
+  .testimonial{
+    background:var(--cream-dark);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:34px 40px;
+    font-style:italic;
+    color:var(--teal-deep);
+    position:relative;
+    margin-bottom:28px;
+  }
+  .testimonial .mark{
+    font-family:'Playfair Display', serif;
+    font-size:2.6rem;
+    color:var(--gold);
+    line-height:0;
+    display:block;
+    margin-bottom:6px;
+  }
+  .testimonial cite{
+    display:block;
+    margin-top:14px;
+    font-style:normal;
+    font-family:'Playfair Display', serif;
+    font-size:0.95rem;
+    color:var(--gold-dark);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    margin-bottom:60px;
+  }
+  .contact{
+    background:var(--teal-deep);
+    color:var(--cream);
+    border-radius:6px;
+    padding:42px 44px;
+  }
+  .contact .label{
+    text-transform:uppercase;
+    letter-spacing:0.22em;
+    font-family:'Playfair Display', serif;
+    font-size:0.85rem;
+    color:var(--gold);
+    border-bottom:1px solid rgba(199,160,106,0.5);
+    display:inline-block;
+    padding-bottom:6px;
+    margin-bottom:18px;
+  }
+  .contact h3{
+    color:var(--white);
+    font-size:1.5rem;
+  }
+  .contact .name{
+    color:var(--gold);
+    font-size:1.7rem;
+    margin:6px 0 18px;
+    font-weight:700;
+  }
+  .contact-line{
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:12px;
+    font-size:1.1rem;
+  }
+  .contact-line svg{ width:20px; height:20px; color:var(--gold); }
+  .contact-line a{
+    text-decoration:none;
+    color:var(--cream);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .contact-line a:hover{ border-color:var(--gold); }
+
+  .cta-btn{
+    display:inline-block;
+    margin-top:22px;
+    padding:14px 30px;
+    background:var(--gold);
+    color:var(--teal-deep);
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    text-decoration:none;
+    border-radius:4px;
+    letter-spacing:0.03em;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .cta-btn:hover{ background:#d8b47f; transform:translateY(-1px); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--cream-dark);
+    border-top:1px solid var(--line);
+    padding:20px 0;
+    text-align:center;
+  }
+  footer .strip{
+    font-family:'Playfair Display', serif;
+    letter-spacing:0.2em;
+    font-size:0.78rem;
+    color:var(--teal-mid);
+    text-transform:uppercase;
+  }
+
+  .section-pad{ padding-top:14px; }
+</style>
+</head>
+<body>
+
+<!-- Ambient animated spine, decorative -->
+<div class="spine-rail" aria-hidden="true">
+  <svg viewBox="0 0 100 800" preserveAspectRatio="xMidYMin slice">
+    <defs>
+      <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2d8577" stop-opacity="0"/>
+        <stop offset="15%" stop-color="#c7a06a" stop-opacity="0.9"/>
+        <stop offset="50%" stop-color="#1f6b63" stop-opacity="0.7"/>
+        <stop offset="85%" stop-color="#c7a06a" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#2d8577" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path class="glow-path" d="M50 0 C 70 40, 30 80, 50 120 S 70 200, 50 240 S 30 320, 50 360 S 70 440, 50 480 S 30 560, 50 600 S 70 680, 50 720 S 30 780, 50 800" />
+    <g fill="#134844" opacity="0.75">
+      <!-- vertebra ellipses -->
+      <ellipse cx="50" cy="30"  rx="13" ry="9"/>
+      <ellipse cx="50" cy="70"  rx="14" ry="9"/>
+      <ellipse cx="50" cy="110" rx="14" ry="9"/>
+      <ellipse cx="50" cy="150" rx="15" ry="10"/>
+      <ellipse cx="50" cy="190" rx="15" ry="10"/>
+      <ellipse cx="50" cy="230" rx="16" ry="10"/>
+      <ellipse cx="50" cy="270" rx="16" ry="10"/>
+      <ellipse cx="50" cy="310" rx="17" ry="11"/>
+      <ellipse cx="50" cy="350" rx="17" ry="11"/>
+      <ellipse cx="50" cy="390" rx="18" ry="11"/>
+      <ellipse cx="50" cy="430" rx="18" ry="12"/>
+      <ellipse cx="50" cy="470" rx="19" ry="12"/>
+      <ellipse cx="50" cy="510" rx="19" ry="12"/>
+      <ellipse cx="50" cy="550" rx="20" ry="13"/>
+      <ellipse cx="50" cy="590" rx="20" ry="13"/>
+      <ellipse cx="50" cy="630" rx="21" ry="13"/>
+      <ellipse cx="50" cy="670" rx="21" ry="14"/>
+      <ellipse cx="50" cy="710" rx="22" ry="14"/>
+      <ellipse cx="50" cy="750" rx="22" ry="14"/>
+    </g>
+  </svg>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand-mark">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#134844" stroke-width="2.4">
+          <path d="M50 50 C 30 20, 5 25, 8 45 C 10 62, 32 62, 50 50 Z" fill="#134844" opacity="0.9"/>
+          <path d="M50 50 C 70 20, 95 25, 92 45 C 90 62, 68 62, 50 50 Z" fill="#134844" opacity="0.9"/>
+          <path d="M50 50 C 33 62, 15 70, 20 82 C 24 92, 42 86, 50 65 Z" fill="#c7a06a" opacity="0.85"/>
+          <path d="M50 50 C 67 62, 85 70, 80 82 C 76 92, 58 86, 50 65 Z" fill="#c7a06a" opacity="0.85"/>
+        </g>
+        <line x1="50" y1="20" x2="50" y2="88" stroke="#134844" stroke-width="3"/>
+        <circle cx="50" cy="26" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="35" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="44" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="53" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="62" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="71" r="2.6" fill="#134844"/>
+        <circle cx="50" cy="80" r="2.6" fill="#134844"/>
+      </svg>
+      <div class="brand-text">
+        <h1>SERENE ESSENCE</h1>
+        <div class="script">Spinal Flow Technique</div>
+      </div>
+    </div>
+    <div class="tagline">
+      <span class="rule"></span> RESTORE &nbsp;•&nbsp; RECONNECT &nbsp;•&nbsp; THRIVE <span class="rule"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- Symptoms + What is SFT -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-head">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#faf5e9" stroke-width="1.8"><path d="M12 3v3M8 8l-1.5-1.5M16 8l1.5-1.5M12 8a4 4 0 00-4 4v2a4 4 0 008 0v-2a4 4 0 00-4-4z"/><path d="M9 21c1-2 2-3 3-3s2 1 3 3"/></svg>
+          </div>
+          <h2>Is Your Body Trying to Tell You Something?</h2>
+        </div>
+        <div class="underline"></div>
+        <p>Many people live with symptoms such as:</p>
+        <ul class="plain">
+          <li>Neck or shoulder pain</li>
+          <li>Fatigue</li>
+          <li>Headaches or migraines</li>
+          <li>Poor sleep</li>
+          <li>Back pain</li>
+          <li>Digestive concerns</li>
+          <li>Stress and anxiety</li>
+          <li>Tension and stiffness</li>
+        </ul>
+        <p class="note">These symptoms may be your body's way of communicating that stress has become stored within your nervous system.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="badge gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#134844" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h2>What Is Spinal Flow Technique?</h2>
+        </div>
+        <div class="underline"></div>
+        <p>Spinal Flow Technique is a gentle, non-invasive healing modality that works with your body's innate intelligence.</p>
+        <p>Using light contacts on specific access points along the spine, the practitioner helps the nervous system release stored stress, tension, and emotional blockages so your body can return to a greater state of balance and healing.</p>
+        <p>Sessions are performed fully clothed and are relaxing, comfortable, and suitable for people of all ages.</p>
+      </div>
+    </div>
+
+    <!-- Gateways + Benefits -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-head">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#faf5e9" stroke-width="1.8"><path d="M4 21V9a8 8 0 0116 0v12"/><path d="M4 21h16"/></svg>
+          </div>
+          <h2>The Seven Gateways</h2>
+        </div>
+        <div class="underline"></div>
+        <div class="gateway-body">
+          <div>
+            <p>Spinal Flow focuses on seven key gateways along the spine that allow the nervous system to communicate more freely throughout the body.</p>
+            <p style="font-style:italic; color:var(--teal-mid); margin-bottom:12px;">The gateways help support:</p>
+            <ul class="checks">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Brain-Body Communication</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Nervous System Regulation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Stress Release</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Spinal Mobility</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Natural Healing</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Emotional Well-Being</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#1f6b63" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Overall Vitality</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="badge gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#134844" stroke-width="1.8"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg>
+          </div>
+          <h2>Benefits May Include</h2>
+        </div>
+        <div class="underline"></div>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Reduced pain and tension</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Improved posture</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Better sleep</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Increased energy</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Reduced stress</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Improved mobility</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Greater emotional balance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#a3763f" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Enhanced overall wellness</li>
+        </ul>
+        <p class="note" style="margin-top:20px;">Every person's healing journey is unique.</p>
+      </div>
+    </div>
+
+    <!-- Heal band -->
+    <div class="heal-band">
+      <div class="badge" style="width:60px;height:60px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c7a06a" stroke-width="1.6"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg>
+      </div>
+      <div>
+        <h2>Your Body Knows How To Heal</h2>
+        <p>When interference is reduced, the nervous system can function more efficiently — allowing the body to do what it was designed to do.</p>
+        <span class="script">Experience the Difference.</span>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial">
+      <span class="mark">&ldquo;</span>
+      After just a few sessions, I felt lighter, slept better, and had more energy than I had in years.
+      <cite>&mdash; client review</cite>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-wrap">
+      <div class="contact">
+        <span class="label">Contact</span>
+        <h3>Serene Essence Spinal Flow Technique</h3>
+        <div class="name">De Lynn Hughes</div>
+
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+15094353741">509-435-3741</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          <a href="mailto:hughesdelynn265@gmail.com">hughesdelynn265@gmail.com</a>
+        </div>
+
+        <a class="cta-btn" href="mailto:hughesdelynn265@gmail.com?subject=Spinal%20Flow%20Session%20Inquiry">Email De Lynn</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="strip">Gentle &nbsp;•&nbsp; Non-Invasive &nbsp;•&nbsp; Holistic &nbsp;•&nbsp; Restorative &nbsp;•&nbsp; Empowering</div>
+</footer>
+
+</body>
+</html>
